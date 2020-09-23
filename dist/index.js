@@ -7,6 +7,9 @@ const express_1 = __importDefault(require("express"));
 const app = express_1.default();
 const port = process.env.PORT || 3000;
 const index_1 = __importDefault(require("./routes/index"));
+//middlewares
+app.use(express_1.default.json());
+app.use(express_1.default.urlencoded({ extended: false }));
 app.use(index_1.default);
 app.listen(port, () => {
     console.log('Server on port !', port);
