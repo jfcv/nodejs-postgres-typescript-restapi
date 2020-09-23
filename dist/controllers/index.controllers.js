@@ -9,7 +9,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.createUser = exports.getUserById = exports.getUsers = void 0;
+exports.deleteUser = exports.createUser = exports.getUserById = exports.getUsers = void 0;
 const database_1 = require("../database");
 exports.getUsers = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
@@ -60,12 +60,15 @@ export const updateUser = async (req: Request, res: Response): Promise<Response>
 
     }
 }
-
-export const deleteUser = async (req: Request, res: Response): Promise<Response> => {
-    try{
-
+*/
+exports.deleteUser = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    try {
+        const id = parseInt(req.params.id);
+        yield database_1.pool.query('DELETE FROM users WHERE id = $1', [id]);
+        return res.status(200).json(`User ${id} deleted successfully`);
     }
-    catch(e) {
-
+    catch (e) {
+        console.log('our error', e);
+        return res.status(500).json('Internal server error');
     }
-} */ 
+});

@@ -6,6 +6,6 @@ const index_controllers_1 = require("../controllers/index.controllers");
 router.get('/users', index_controllers_1.getUsers);
 router.get('/users/:id', index_controllers_1.getUserById);
 router.post('/users', index_controllers_1.createUser);
-/* router.put('/users/:id', updateUser);
-router.delete('/users/:id', deleteUser); */
+/* router.put('/users/:id', updateUser); */
+router.delete('/users/:id', index_controllers_1.deleteUser);
 exports.default = router;
