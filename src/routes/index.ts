@@ -4,5 +4,9 @@ const router = Router();
 import {getUsers} from '../controllers/index.controllers'
 
 router.get('/users', getUsers);
+//router.get('/users/:id', getUsers);
+//router.post('/users/:id', getUsers);
+//router.put('/users/:id', getUsers);
+//router.delete('/users/:id', getUsers);
 
 export default router;

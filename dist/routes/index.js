@@ -4,4 +4,8 @@ const express_1 = require("express");
 const router = express_1.Router();
 const index_controllers_1 = require("../controllers/index.controllers");
 router.get('/users', index_controllers_1.getUsers);
+//router.get('/users/:id', getUsers);
+//router.post('/users/:id', getUsers);
+//router.put('/users/:id', getUsers);
+//router.delete('/users/:id', getUsers);
 exports.default = router;
