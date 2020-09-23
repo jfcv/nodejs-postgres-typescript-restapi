@@ -45,16 +45,20 @@ export const createUser = async (req: Request, res: Response): Promise<Response>
         return res.status(503).json('Service unavailable');
     }
 }
-/*
+
 export const updateUser = async (req: Request, res: Response): Promise<Response> => {
     try{
-
+        const id = parseInt(req.params.id);
+        const {name, email} = req.body;
+        await pool.query('UPDATE users SET name = $1, email = $2 WHERE id = $3', [name, email, id]);
+        return res.status(200).json(`User ${id} updated successfully`);
     }
     catch(e) {
-
+        console.log('our error', e);
+        return res.status(503).json('Service unavailable');
     }
 }
-*/
+
 export const deleteUser = async (req: Request, res: Response): Promise<Response> => {
     try{
         const id = parseInt(req.params.id);
