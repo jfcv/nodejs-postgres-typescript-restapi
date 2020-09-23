@@ -13,3 +13,39 @@ export const getUsers = async (req: Request, res: Response): Promise<Response> =
         return res.status(500).json('Internal Server Error');
     }
 }
+
+export const getUserById = async (req: Request, res: Response): Promise<Response> => {
+    try{
+
+    }
+    catch(e) {
+
+    }
+}
+
+/* export const createUser = async (req: Request, res: Response): Promise<Response> => {
+    try{
+
+    }
+    catch(e) {
+
+    }
+}
+
+export const updateUser = async (req: Request, res: Response): Promise<Response> => {
+    try{
+
+    }
+    catch(e) {
+
+    }
+}
+
+export const deleteUser = async (req: Request, res: Response): Promise<Response> => {
+    try{
+
+    }
+    catch(e) {
+
+    }
+} */

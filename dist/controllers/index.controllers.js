@@ -9,7 +9,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.getUsers = void 0;
+exports.getUserById = exports.getUsers = void 0;
 const database_1 = require("../database");
 exports.getUsers = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
@@ -21,3 +21,35 @@ exports.getUsers = (req, res) => __awaiter(void 0, void 0, void 0, function* () 
         return res.status(500).json('Internal Server Error');
     }
 });
+exports.getUserById = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    try {
+    }
+    catch (e) {
+    }
+});
+/* export const createUser = async (req: Request, res: Response): Promise<Response> => {
+    try{
+
+    }
+    catch(e) {
+
+    }
+}
+
+export const updateUser = async (req: Request, res: Response): Promise<Response> => {
+    try{
+
+    }
+    catch(e) {
+
+    }
+}
+
+export const deleteUser = async (req: Request, res: Response): Promise<Response> => {
+    try{
+
+    }
+    catch(e) {
+
+    }
+} */ 
