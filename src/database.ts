@@ -1,7 +1,7 @@
 import {Pool} from 'pg';
 
 export const pool = new Pool({
-    user: 'postgres',
+    user: 'velveet',
     host: 'localhost',
     password: '',
     database: 'typescriptdatabase',
