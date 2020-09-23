@@ -23,8 +23,13 @@ exports.getUsers = (req, res) => __awaiter(void 0, void 0, void 0, function* () 
 });
 exports.getUserById = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
+        const id = yield parseInt(req.params.id);
+        const response = yield database_1.pool.query('SELECT * FROM users WHERE id = $1', [id]);
+        return res.status(200).json(response.rows);
     }
     catch (e) {
+        console.log('our error', e);
+        return res.status(500).json('Internal Server Error');
     }
 });
 /* export const createUser = async (req: Request, res: Response): Promise<Response> => {
