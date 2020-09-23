@@ -9,7 +9,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.getUserById = exports.getUsers = void 0;
+exports.createUser = exports.getUserById = exports.getUsers = void 0;
 const database_1 = require("../database");
 exports.getUsers = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
@@ -18,29 +18,40 @@ exports.getUsers = (req, res) => __awaiter(void 0, void 0, void 0, function* () 
     }
     catch (e) {
         console.log('our error', e);
-        return res.status(500).json('Internal Server Error');
+        return res.status(404).json('Resource not found!');
     }
 });
 exports.getUserById = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
-        const id = yield parseInt(req.params.id);
+        const id = parseInt(req.params.id);
         const response = yield database_1.pool.query('SELECT * FROM users WHERE id = $1', [id]);
         return res.status(200).json(response.rows);
     }
     catch (e) {
         console.log('our error', e);
-        return res.status(500).json('Internal Server Error');
+        return res.status(404).json('Resource not found!');
     }
 });
-/* export const createUser = async (req: Request, res: Response): Promise<Response> => {
-    try{
-
+exports.createUser = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    try {
+        const { name, email } = req.body;
+        const response = yield database_1.pool.query('INSERT INTO users (name, email) VALUES ($1, $2)', [name, email]);
+        return res.status(200).json({
+            message: 'User created successfully',
+            body: {
+                user: {
+                    name,
+                    email
+                }
+            }
+        });
     }
-    catch(e) {
-
+    catch (e) {
+        console.log('our error', e);
+        return res.status(503).json('Service unavailable');
     }
-}
-
+});
+/*
 export const updateUser = async (req: Request, res: Response): Promise<Response> => {
     try{
 
